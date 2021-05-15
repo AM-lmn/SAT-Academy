@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { View, TouchableOpacity, TextInput, Modal } from 'react-native'
+import { View, Text } from 'react-native'
 import firebase from 'firebase'
 import styles from '../styles'
 import { connect } from 'react-redux'
-import { Avatar, Title, Caption, Text, TouchableRipple, } from 'react-native-paper';
+import { Title } from 'react-native-paper';
+// https://callstack.github.io/react-native-paper/
 
 function Home(props) {
 
@@ -49,12 +50,14 @@ function Home(props) {
                 <Title style={[styles.title2, { marginTop: 25, marginLeft: 25,}]}>
                     What you have already accomplished:
                 </Title>
-                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>Nothing so far! Head over to "Study" and start studying!</Text>
+                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>Nothing so far! Head over to "Study" and start taking some SAT or PSAT tests!</Text>
+                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>Psst... if you haven't already, go to Profile and set your target score.</Text>
             </View>
             <View style={{marginTop: 20}}>
                 <Title style={[styles.title2, { marginTop: 25, marginLeft: 25,}]}>
                     What's next:
                 </Title>
+                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>Take all the SAT and PSAT tests that haven't shown up here!</Text>
             </View>
             <View style={{marginTop: 20}}>
                 <Title style={[styles.title2, { marginTop: 25, marginLeft: 25}]}>

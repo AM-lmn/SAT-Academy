@@ -13,7 +13,7 @@ export function fetchUser(){
             if(snapshot.exists){
                 dispatch({type : USER_STATE_CHANGE, currentUser: snapshot.data()})
             } else {
-                console.log('does not exist')
+                window.alert("User does not exist. Contact app administrator if you see this error.");
             }
         })
     })

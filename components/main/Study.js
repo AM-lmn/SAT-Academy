@@ -1,47 +1,23 @@
-import React from 'react'
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
-import styles from '../styles'
-import { Avatar, Title, Caption, TouchableRipple, } from 'react-native-paper';
+import React, { Component } from 'react'
 
-export default function Study() {
-    return (
-        <View style={{flex: 1}}>
-            <ScrollView
-                scrollEventThrottle={16}
-            >
-                <View style={styles.practiceTestContainer}>
-                    <Title style={[styles.title2, { marginTop: 25, marginLeft: 25,}]}>
-                        Practice Tests
-                    </Title>
-                    <TouchableOpacity style={[styles.practiceTestButton, { backgroundColor: '#871' }]}>
-                        <Text>Practice Test #1</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.practiceTestButton, { backgroundColor: '#317' }]}>
-                        <Text>Practice Test #2</Text>
-                    </TouchableOpacity>
-                </View>
-            </ScrollView>
-            <ScrollView
-                scrollEventThrottle={16}
-                horizontal={true}
-            >
-                <View style={{marginTop: 20}}>
-                    <Title style={[styles.title2, { marginTop: 25, marginLeft: 25,}]}>
-                        By category:
-                    </Title>
-                    <View style={{flexDirection: 'row'}}>
-                        <TouchableOpacity style={[styles.practiceQuestionButton, { backgroundColor: '#4A4' }]}>
-                            <Text>Reading</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.practiceQuestionButton, { backgroundColor: '#758' }]}>
-                            <Text>Writing</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.practiceQuestionButton, { backgroundColor: '#367' }]}>
-                            <Text>Math</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </ScrollView>
-        </View>
-    )
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+import HubScreen from './studyWebviews/Hub'
+import LinksScreen from './studyWebviews/Links'
+
+// This file serves to navigate between the hub of all tests and the webview of any particular test, its answers, or an answer sheet
+export default class Study extends Component {
+    render() {
+        return (
+            <NavigationContainer independent={true}>
+            <Stack.Navigator initialRouteName="Hub">
+                <Stack.Screen name="Hub" component={HubScreen} options={{ headerShown: false }}/>
+                <Stack.Screen name="Link" component={LinksScreen}/>
+            </Stack.Navigator>
+            </NavigationContainer>
+        );
+    }
 }

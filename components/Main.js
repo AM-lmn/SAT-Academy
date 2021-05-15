@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { View, ActivityIndicator } from 'react-native'
+import { View } from 'react-native'
+import { ActivityIndicator, Colors } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+// https://materialdesignicons.com/
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -12,6 +14,7 @@ import StudyScreen from './main/Study'
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 const Tab = createMaterialBottomTabNavigator();
+// https://reactnavigation.org/docs/bottom-tab-navigator/
 
 export class Main extends Component {
     componentDidMount() {
@@ -22,8 +25,8 @@ export class Main extends Component {
         const { currentUser } = this.props;
         if(currentUser == undefined){
             return (
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                    <ActivityIndicator size="large" />
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff'}}>
+                    <ActivityIndicator animating={true} color={Colors.red800} size='large' />
                 </View>
             )
         }
@@ -32,19 +35,19 @@ export class Main extends Component {
             <Tab.Navigator initialRouteName="Home" activeColor="#f0edf6" barStyle={{ backgroundColor: '#694fad' }} shifting='true'>
                 <Tab.Screen name="Home" component={HomeScreen}
                 options={{
-                    tabBarLabel: 'Home', tabBarColor: '#FF6347', tabBarIcon: ({ color, size }) => (
+                    tabBarLabel: 'Home', tabBarColor: '#FF6347', tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="home" color={color} size={26}/>
                     ),
                 }} />
                 <Tab.Screen name="Study" component={StudyScreen}
                 options={{
-                    tabBarLabel: 'Study', tabBarColor: '#694FAD', tabBarIcon: ({ color, size }) => (
+                    tabBarLabel: 'Study', tabBarColor: '#694FAD', tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="school" color={color} size={26}/>
                     ),
                 }} />
                 <Tab.Screen name="Profile" component={ProfileScreen}
                 options={{
-                    tabBarLabel: 'Profile', tabBarColor: '#1F65FF', tabBarIcon: ({ color, size }) => (
+                    tabBarLabel: 'Profile', tabBarColor: '#1F65FF', tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="account" color={color} size={26}/>
                     ),
                 }} />

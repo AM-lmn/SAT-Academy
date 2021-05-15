@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import { View, TextInput, Text, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Image } from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Ionicons } from '@expo/vector-icons';
-// https://ionicons.com/
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view' // https://www.npmjs.com/package/react-native-keyboard-aware-scroll-view
+import { Ionicons } from '@expo/vector-icons'; // https://ionicons.com/
 import firebase from 'firebase'
-
 import styles from '../styles'
-
-/* TODO: Make the "Don't have an account? Sign up" thing work */
 
 export class Login extends Component {
     static navigationOptions = {
@@ -15,18 +11,16 @@ export class Login extends Component {
     };
     constructor(props){
         super(props);
-
         this.state = {
             email: '',
             password: '',
             name: '',
             errorMessage: null
         }
-
         this.onSignIn = this.onSignIn.bind(this)
     }
 
-    // Signs in the user
+    // Signs in the user with email and password
     onSignIn(){
         const { email, password } = this.state;
         firebase.auth().signInWithEmailAndPassword(email, password)
@@ -37,13 +31,12 @@ export class Login extends Component {
     }
 
     // Signs in the user with Google
-    // NOTE: It is already expected that the user has made an account via signing up with Google if using this function.
+    // https://firebase.google.com/docs/auth/web/google-signin
     onGoogleLogin(){
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(() => { 
-
         }).catch((error) => {
-            console.log(error)
+            window.alert(error);
         })
     }
 
@@ -58,7 +51,7 @@ export class Login extends Component {
                         </TouchableOpacity>
                     </View>
                     <TouchableWithoutFeedback 
-                    onPress={() => Keyboard.dismiss()}
+                        onPress={() => Keyboard.dismiss()}
                     >
                         <View style={styles.titleRegisterAndLogin}>
                             <Image

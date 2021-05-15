@@ -1,13 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { ActivityIndicator} from 'react-native'
+import { ActivityIndicator, Colors } from 'react-native-paper';
+import { View } from 'react-native'
 
-import { View, Text } from 'react-native'
 import firebase from "firebase/app"
 import '@firebase/auth';
 import '@firebase/firestore';
 
-
+// https://redux.js.org/introduction/getting-started
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './redux/reducers'
@@ -28,6 +27,7 @@ if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
+// https://reactnavigation.org/docs/navigation-container/
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -47,7 +47,6 @@ export class App extends Component {
     }
   }
 
-  /* Continue from this video: https://www.youtube.com/watch?v=1hPgQWbWmEk&t=1774s&ab_channel=freeCodeCamp.org at 1:49:53 */
   componentDidMount(){
     firebase.auth().onAuthStateChanged((user) => {
       if(!user){
@@ -66,12 +65,10 @@ export class App extends Component {
 
   render() {
     const { loggedIn, loaded } = this.state;
-    /* Source code: https://reactnative.dev/docs/activityindicator */
-    /* Seeing this indicates that the app is loading */
     if(!loaded){
       return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <ActivityIndicator size="large" />
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff'}}>
+          <ActivityIndicator animating={true} color={Colors.red800} size='large' />
         </View>
       )
     }
@@ -88,9 +85,6 @@ export class App extends Component {
       );
     }
 
-    /* This is essentially the home screen */
-    /* This will only show up when the app is not loading in anything else, and when the user is logged in via Firebase */
-    /* TODO: Make a functional Sign Out button on the Home screen that takes the user back to the Landing */
     return (
       <Provider store={store}>
         <NavigationContainer>

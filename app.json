@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sat-academy_4-8-2021",
-    "slug": "sat-academy_4-8-2021",
+    "name": "sat-academy",
+    "slug": "sat-academy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

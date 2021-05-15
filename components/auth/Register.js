@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, TextInput, TouchableOpacity, Text, Keyboard, TouchableWithoutFeedback, Image } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+// https://www.npmjs.com/package/react-native-keyboard-aware-scroll-view
 import { Ionicons } from '@expo/vector-icons';
 // https://ionicons.com/
 import firebase from 'firebase'
@@ -25,7 +26,7 @@ export class Register extends Component {
         this.onGoogleSignUp = this.onGoogleSignUp.bind(this)
     }
 
-    // Creates user with provided credentials and then stores the data in the Firestore
+    // Registers user with email and password, and creates relevant user data in Firestore
     onSignUp() {
         const { email, password, confirmPassword, name } = this.state;
         if (password !== confirmPassword) {
@@ -45,11 +46,11 @@ export class Register extends Component {
         .catch(error => this.setState({ errorMessage: error.message }))
     }
 
-    // Signs up the user with Google, then stores the name and email of the user as those associated with their Google account
+    // Registers user with Google, and creates relevant user data in Firestore
+    // https://firebase.google.com/docs/auth/web/google-signin
     onGoogleSignUp(){
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then((cred) => {
-            
             const { user } = cred
             const { displayName, email } = user
             firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid).set({
