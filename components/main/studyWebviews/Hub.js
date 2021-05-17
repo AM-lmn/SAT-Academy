@@ -2136,6 +2136,9 @@ export default class Hub extends Component {
                             </TouchableOpacity>   
                         </ScrollView>
                     </View>
+                    <Text style={{ marginTop: 20, marginLeft: 25, marginRight: 25, marginBottom: 10 }}>...and that's it! If you want more tests then please contact the developer.</Text>
+                    <Text style={{ marginLeft: 25, marginRight: 25, marginBottom: 10 }}>Email: amalik34@hotmail.com</Text>
+                    <Text style={{ marginLeft: 25, marginRight: 25, marginBottom: 30 }}>GitHub: https://github.com/AM-lmn</Text>
                 </ScrollView>
             </View>
         )

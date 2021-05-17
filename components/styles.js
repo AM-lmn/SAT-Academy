@@ -191,7 +191,7 @@ export default StyleSheet.create({
         margin: 20,
     },
     sampleAnswerSheetsContainer: {
-        height: 4*(deviceHeight/5),
+        height: 2*(deviceHeight/5),
         width: deviceWidth,
         margin: 20,
     },
