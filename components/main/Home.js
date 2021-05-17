@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, FlatList } from 'react-native'
 import firebase from 'firebase'
 import styles from '../styles'
 import { connect } from 'react-redux'
@@ -37,6 +37,13 @@ function Home(props) {
     ];
     const random = Math.floor(Math.random() * studyTips.length);
 
+    const [completedTests, setCompletedTests] = useState([]);
+    
+    useEffect(() => {
+        setCompletedTests(props.completedTests);
+        console.log(completedTests)
+    }, )
+
     const { currentUser } = props;
 
     return (
@@ -48,10 +55,22 @@ function Home(props) {
             </View>
             <View style={{marginTop: 20}}>
                 <Title style={[styles.title2, { marginTop: 25, marginLeft: 25,}]}>
-                    What you have already accomplished:
-                </Title>
-                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>Nothing so far! Head over to "Study" and start taking some SAT or PSAT tests!</Text>
-                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>Psst... if you haven't already, go to Profile and set your target score.</Text>
+                    Tests you've taken:
+                </Title>         
+                <FlatList
+                    data={completedTests}
+                    numColumns={1}
+                    horizontal={true}
+                    keyExtractor={item => item.id}
+                    ListEmptyComponent={<Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>None so far! Head over to Study and take a test!{"\n"}Psst... before you do that, go to Profile and set a target score for yourself.</Text>}
+                    renderItem={({ item }) => (
+                        <View style={[styles.scoreOverview, { backgroundColor: '#596b96' }]}>
+                            <Text style={{marginLeft: 5, marginRight: 5}}>{item.id}</Text>
+                            <Text style={{marginLeft: 5, marginRight: 5}}>Your score: {item.testScore}</Text>
+                            <Text style={{marginLeft: 5, marginRight: 5}}>Target score reached: {item.targetReached.toString()}</Text>
+                            <Text style={{marginLeft: 5, marginRight: 5}}>Additional points needed to reach target: {item.difference}</Text>
+                        </View>
+                )} />
             </View>
             <View style={{marginTop: 20}}>
                 <Title style={[styles.title2, { marginTop: 25, marginLeft: 25,}]}>

@@ -212,6 +212,18 @@ export default StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2
     },
+    scoreOverview: {
+        marginLeft: 20,
+        marginRight: 10,
+        marginTop: 20,
+        width: 3*(deviceWidth/10),
+        height: deviceHeight/6,
+        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: 'center',
+        borderColor: 'black',
+        borderWidth: 2
+    },
     enterAndSubmitScoreContainer: {
         flexDirection: 'column',
         height: deviceHeight/7,
