@@ -13,8 +13,6 @@ import rootReducer from './redux/reducers'
 import thunk from 'redux-thunk'
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
-// hmm
-
 const firebaseConfig = {
   apiKey: "AIzaSyBZqWJmRYd6AIaqAR28ERufTQRuuOaYJx4",
   authDomain: "sat-academy-final-project.firebaseapp.com",
