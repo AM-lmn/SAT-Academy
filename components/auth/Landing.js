@@ -18,7 +18,7 @@ export default function Landing({ navigation }) {
                     Track all your results
                 </Text>
                 <Text style={styles.smallerSubtitleText}>
-                    Every SAT practice resource brought into one app.
+                    50+ full SAT and PSAT tests, all brought into one app.
                 </Text>
             </View>
             <TouchableOpacity

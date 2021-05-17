@@ -58,7 +58,7 @@ export default function Links({route}) {
     case 'May 2019 SAT':
       link = 'https://focusonlearningcenter.com/wp-content/uploads/2020/07/May-2019-SAT-U.S.-Test.pdf'; break;
     case 'May 2019 International Practice Test':
-      link = 'https://www.docdroid.net/uA4dr8X/may-2019-international-sat-qas-pdf'; break;
+      link = 'https://share.dmca.gripe/1WCZdhKd3lbxO6Xu.pdf'; break;
     case 'November 24 2018 PSAT':
       link = `https://share.dmca.gripe/cyys9WeGbpOhr7As.pdf`; break;
     case 'March 9 2019 SAT':
@@ -86,7 +86,7 @@ export default function Links({route}) {
     case 'PSAT November 2 2016':
       link = 'https://share.dmca.gripe/0AwhU10UAgAezH9y.pdf'; break;
     case 'PSAT October 19 2016':
-      link = 'https://www.docdroid.net/AHEvJWZ/2016-psat-wednesday-version-10-19-16-1-pdf'; break;
+      link = 'https://share.dmca.gripe/OWNCguZ08V2C2Wgd.pdf'; break;
     case 'PSAT October 15 2016':
       link = 'https://share.dmca.gripe/gMXYWuRM8C3FqFdo.pdf'; break;
     case 'PSAT October 28 2015':
@@ -132,15 +132,53 @@ export default function Links({route}) {
     case 'PSAT 8/9 Practice Test 1 Answers':
       link = 'https://collegereadiness.collegeboard.org/pdf/psat-8-9-practice-test-1-scoring-guide.pdf'; break;
     case 'PSAT 10/11/17 and PSAT 10/25/17 Answers':
-      link = 'https://www.docdroid.net/PcgbtKe/2017-psat-answers-all-test-dates-pdf#page=2'; break;
+      link = 'https://share.dmca.gripe/DBbMN6o6GYphuD8C.pdf'; break;
     case 'PSAT 11/2/16 Answers':
       link = 'https://setonschool.net/wp-content/uploads/2016/12/psat-nmsqt-understanding-scores-2016.pdf'; break;
     case 'PSAT 10/28/15 Answers':
-      link = 'https://www.docdroid.net/0JKsX9H/2015-wednesday-psats-answer-key-and-scoring-pdf#page=14'; break;
+      link = 'https://share.dmca.gripe/pfSPUaY8RUbLg4Gf.pdf'; break;
     case 'Ivy Global SAT Practice Test 1':
       link = 'https://downloads.ivyglobal.com/sat/Courses/sat_online_test_1.pdf'; break;
     case 'Ivy Global SAT Practice Test 2':
       link = 'https://downloads.ivyglobal.com/sat/Courses/sat_online_test_2.pdf'; break;
+    case 'McGraw Hill 2017 SAT Practice Test 1':
+      link = 'https://share.dmca.gripe/pyfu5L4sR5t6go7p.pdf'; break;
+    case 'McGraw Hill 2017 SAT Practice Test 2':
+      link = 'https://share.dmca.gripe/vNhaPkJUfQaXCUJQ.pdf'; break;
+    case 'McGraw Hill 2017 SAT Practice Test 3':
+      link = 'https://share.dmca.gripe/b5KksKtW68WEqzzl.pdf'; break;
+    case 'McGraw Hill 2018 SAT Practice Test 1':
+      link = 'https://share.dmca.gripe/FJMOR9uuOc6n4KMw.pdf'; break;
+    case 'McGraw Hill 2018 SAT Practice Test 2':
+      link = 'https://share.dmca.gripe/IluUi0XLFDNpnTB1.pdf'; break;
+    case 'McGraw Hill 2018 SAT Practice Test 3':
+      link = 'https://share.dmca.gripe/rVaAE0I8LfZSRggl.pdf'; break;
+    case 'Princeton Review PSAT NMSQT 2018 Practice Test 1':
+      link = 'https://share.dmca.gripe/JkPaN9IoeUcOMapN.pdf'; break;
+    case 'Princeton Review PSAT NMSQT 2018 Practice Test 2':
+      link = 'https://share.dmca.gripe/rn1BF7FfToullCZT.pdf'; break;
+    case 'Kaplan SAT Practice Test 1':
+      link = 'https://share.dmca.gripe/1eW1goMavllmZK6w.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 1':
+      link = 'https://share.dmca.gripe/wgC3fi1wMfGdKzr4.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 2':
+      link = 'https://share.dmca.gripe/3UmU4XMKzfiG8alF.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 3':
+      link = 'https://share.dmca.gripe/fs5225jK9FdgzlDa.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 4':
+      link = 'https://share.dmca.gripe/6nEw06NO5Wgz3YXv.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 1 Answers':
+      link = 'https://share.dmca.gripe/ycKNH7RBObPfCDZz.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 2 Answers':
+      link = 'https://share.dmca.gripe/XLwMNVRQmY7SAAXK.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 3 Answers':
+      link = 'https://share.dmca.gripe/RdlOVKSsUHheLC8p.pdf'; break;
+    case 'Princeton Review 2017 SAT Practice Test 4 Answers':
+      link = 'https://share.dmca.gripe/6xjqsfJuOHfw0Dvk.pdf'; break;
+    case 'Princeton Review 2018 SAT Practice Test 1':
+      link = 'https://share.dmca.gripe/YD3aEo4TN2U0yfvC.pdf'; break;
+    case 'Princeton Review 2018 SAT Practice Test 1 Answers':
+      link = 'https://share.dmca.gripe/oi2KYLpRX4u80jMN.pdf'; break;
   }
 
   function LoadingIndicatorView() {
@@ -186,7 +224,7 @@ export default function Links({route}) {
     case 'Answer Sheet':
       alerts = `window.alert("This is a sample answer sheet that the College Board has provided for students to record answers.")`; break;
     case 'Answer Key':
-      alerts = `window.alert("Use this document to score the SAT you just took!")`; break;
+      alerts = `window.alert("Use this document to score the test you just took!")`; break;
   }
   
 
