@@ -5,6 +5,7 @@ import styles from '../styles'
 import { connect } from 'react-redux'
 import { Avatar, Title, Caption } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+// Expo image picker docs: https://docs.expo.io/versions/latest/sdk/imagepicker/
 import * as ImagePicker from 'expo-image-picker';
 
 function Profile(props) {

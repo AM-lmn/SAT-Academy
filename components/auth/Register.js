@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { View, TextInput, TouchableOpacity, Text, Keyboard, TouchableWithoutFeedback, Image } from 'react-native'
+// Keyboard Aware ScrollView docs: https://www.npmjs.com/package/react-native-keyboard-aware-scroll-view
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-// https://www.npmjs.com/package/react-native-keyboard-aware-scroll-view
+// Vector Icons docs: https://ionicons.com/
 import { Ionicons } from '@expo/vector-icons';
-// https://ionicons.com/
 import firebase from 'firebase'
-
 import styles from '../styles'
 
 export class Register extends Component {

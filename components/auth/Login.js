@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, TextInput, Text, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Image } from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view' // https://www.npmjs.com/package/react-native-keyboard-aware-scroll-view
-import { Ionicons } from '@expo/vector-icons'; // https://ionicons.com/
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { Ionicons } from '@expo/vector-icons';
 import firebase from 'firebase'
 import styles from '../styles'
 

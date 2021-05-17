@@ -3,8 +3,8 @@ import { View, Text, FlatList } from 'react-native'
 import firebase from 'firebase'
 import styles from '../styles'
 import { connect } from 'react-redux'
+// React Native Paper docs: https://callstack.github.io/react-native-paper/
 import { Title } from 'react-native-paper';
-// https://callstack.github.io/react-native-paper/
 
 function Home(props) {
 
@@ -41,7 +41,6 @@ function Home(props) {
     
     useEffect(() => {
         setCompletedTests(props.completedTests);
-        console.log(completedTests)
     }, )
 
     const { currentUser } = props;

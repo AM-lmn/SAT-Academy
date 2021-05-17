@@ -6,7 +6,7 @@ import firebase from "firebase/app"
 import '@firebase/auth';
 import '@firebase/firestore';
 
-// https://redux.js.org/introduction/getting-started
+// Redux docs: https://redux.js.org/introduction/getting-started
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './redux/reducers'
@@ -14,14 +14,20 @@ import thunk from 'redux-thunk'
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 const firebaseConfig = {
-  // your config here
+  apiKey: "AIzaSyBZqWJmRYd6AIaqAR28ERufTQRuuOaYJx4",
+  authDomain: "sat-academy-final-project.firebaseapp.com",
+  projectId: "sat-academy-final-project",
+  storageBucket: "sat-academy-final-project.appspot.com",
+  messagingSenderId: "777569984947",
+  appId: "1:777569984947:web:538d6185fdfa2433556bc6",
+  measurementId: "G-1NJGYQ7Y8H"
 };
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
-// https://reactnavigation.org/docs/navigation-container/
+// React Navigation docs: https://reactnavigation.org/docs/navigation-container/
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -29,7 +35,6 @@ import LandingScreen from './components/auth/Landing'
 import RegisterScreen from './components/auth/Register'
 import LoginScreen from './components/auth/Login'
 import MainScreen from './components/Main'
-
 
 const Stack = createStackNavigator();
 
@@ -41,6 +46,7 @@ export class App extends Component {
     }
   }
 
+  // Use onAuthStateChanged() to check the auth status of the user and render the app as such
   componentDidMount(){
     firebase.auth().onAuthStateChanged((user) => {
       if(!user){
@@ -57,6 +63,7 @@ export class App extends Component {
     })
   }
 
+  // When the app is loading in content, show this loading-in indicator
   render() {
     const { loggedIn, loaded } = this.state;
     if(!loaded){
@@ -67,6 +74,7 @@ export class App extends Component {
       )
     }
 
+    // If the user is not logged in, display all the pages that allow the user to register/login
     if(!loggedIn){
       return (
         <NavigationContainer>
@@ -79,6 +87,7 @@ export class App extends Component {
       );
     }
 
+    // When the user is logged in AND the app is loaded, display the main app content
     return (
       <Provider store={store}>
         <NavigationContainer>

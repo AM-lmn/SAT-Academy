@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TouchableOpacity, Image, ImageBackground } from 'react-native'
+import { Text, View, TouchableOpacity, Image } from 'react-native'
 import styles from '../styles'
 
 export default function Landing({ navigation }) {
@@ -15,7 +15,7 @@ export default function Landing({ navigation }) {
                     SAT Academy
                 </Text>
                 <Text style={styles.subtitleText}>
-                    Track all your results
+                    Track all your results.
                 </Text>
                 <Text style={styles.smallerSubtitleText}>
                     50+ full SAT and PSAT tests, all brought into one app.

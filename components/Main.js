@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { ActivityIndicator, Colors } from 'react-native-paper';
+// Material Community Icons docs: https://materialdesignicons.com/
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-// https://materialdesignicons.com/
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -12,9 +12,9 @@ import ProfileScreen from './main/Profile'
 import HomeScreen from './main/Home'
 import StudyScreen from './main/Study'
 
+// Bottom tab navigation docs: https://reactnavigation.org/docs/bottom-tab-navigator/
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 const Tab = createMaterialBottomTabNavigator();
-// https://reactnavigation.org/docs/bottom-tab-navigator/
 
 export class Main extends Component {
     componentDidMount() {
@@ -24,6 +24,7 @@ export class Main extends Component {
     }
     render() {
         const { currentUser } = this.props;
+        // this is needed because every time the app loads, there is a split-second when the user is undefined
         if(currentUser == undefined){
             return (
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff'}}>
@@ -56,10 +57,9 @@ export class Main extends Component {
         )
     }
 }
-
+ 
 const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser
 })
 const mapDispatchProps = (dispatch) => bindActionCreators({fetchUser, clearData, fetchUserCompletedTests}, dispatch)
-
 export default connect(mapStateToProps, mapDispatchProps)(Main);

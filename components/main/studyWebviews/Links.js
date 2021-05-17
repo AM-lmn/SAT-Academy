@@ -1,10 +1,13 @@
 import React from 'react'
 import { View } from 'react-native';
 import { ActivityIndicator, Colors } from 'react-native-paper';
+// React Native Webview docs: https://github.com/react-native-webview/react-native-webview/blob/master/docs/Guide.md
 import { WebView } from 'react-native-webview';
 import styles from '../../styles';
 
-export default function Links({route}) { 
+export default function Links({route}) {
+  
+  // This switch handles every single link that is in the app
   var link;
   switch(route.params.site) {
     case 'CB Practice Test 1': 
@@ -181,6 +184,7 @@ export default function Links({route}) {
       link = 'https://share.dmca.gripe/oi2KYLpRX4u80jMN.pdf'; break;
   }
 
+  // Displayed when the website in the Webview is loading
   function LoadingIndicatorView() {
     return (
       <View style={styles.hubLoading}>
@@ -189,6 +193,7 @@ export default function Links({route}) {
     )
   }
 
+  // A set of delayed alerts that effectively serve as a test proctor, depending on the test (SAT or PSAT)
   var alerts;
   switch(route.params.type) {
     case 'SAT':
@@ -226,9 +231,10 @@ export default function Links({route}) {
     case 'Answer Key':
       alerts = `window.alert("Use this document to score the test you just took!")`; break;
   }
-  
 
-  console.log(link);
+  // Embeds an entire website in React Native, with the uri handled by the switch case above,
+  // Shows the LoadingIndicatorView when it's loading, setting originWhitelist to * so that it stays in the Webview at all times,
+  // And enabling injected JS to show the alerts
   return <WebView 
     source={{ uri: link }}
     renderLoading={LoadingIndicatorView}
