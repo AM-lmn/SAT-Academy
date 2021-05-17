@@ -6,7 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchUser, clearData } from '../redux/actions/index'
+import { fetchUser, clearData, fetchUserCompletedTests } from '../redux/actions/index'
 
 import ProfileScreen from './main/Profile'
 import HomeScreen from './main/Home'
@@ -20,6 +20,7 @@ export class Main extends Component {
     componentDidMount() {
         this.props.clearData();
         this.props.fetchUser();
+        this.props.fetchUserCompletedTests();
     }
     render() {
         const { currentUser } = this.props;
@@ -59,6 +60,6 @@ export class Main extends Component {
 const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser
 })
-const mapDispatchProps = (dispatch) => bindActionCreators({fetchUser, clearData}, dispatch)
+const mapDispatchProps = (dispatch) => bindActionCreators({fetchUser, clearData, fetchUserCompletedTests}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchProps)(Main);

@@ -71,5 +71,6 @@ function Home(props) {
 
 const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser,
+    completedTests: store.userState.completedTests
 })
 export default connect(mapStateToProps, null)(Home);
