@@ -15,7 +15,7 @@ export function fetchUser(){
             if(snapshot.exists){
                 dispatch({type : USER_STATE_CHANGE, currentUser: snapshot.data()})
             } else {
-                console.log("user data does not exist");
+                window.alert("data bad");
             }
         })
     })

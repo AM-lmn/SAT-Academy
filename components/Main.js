@@ -25,7 +25,7 @@ export class Main extends Component {
     render() {
         const { currentUser } = this.props;
         // this is needed because every time the app loads, there is a split-second when the user is undefined
-        if(currentUser == null){
+        if(currentUser == ''){
             return (
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff'}}>
                     <ActivityIndicator animating={true} color={Colors.red800} size='large' />
