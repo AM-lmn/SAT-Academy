@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 import { View } from 'react-native'
 
+// import everything we need from firebase
 import firebase from "firebase/app"
 import '@firebase/auth';
 import '@firebase/firestore';
@@ -14,7 +15,13 @@ import thunk from 'redux-thunk'
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 const firebaseConfig = {
-  // your config here
+  apiKey: "AIzaSyBZqWJmRYd6AIaqAR28ERufTQRuuOaYJx4",
+  authDomain: "sat-academy-final-project.firebaseapp.com",
+  projectId: "sat-academy-final-project",
+  storageBucket: "sat-academy-final-project.appspot.com",
+  messagingSenderId: "777569984947",
+  appId: "1:777569984947:web:538d6185fdfa2433556bc6",
+  measurementId: "G-1NJGYQ7Y8H"
 };
 
 if (firebase.apps.length === 0) {
@@ -25,6 +32,7 @@ if (firebase.apps.length === 0) {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+// import all screens we need for navigation
 import LandingScreen from './components/auth/Landing'
 import RegisterScreen from './components/auth/Register'
 import LoginScreen from './components/auth/Login'

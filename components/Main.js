@@ -4,10 +4,12 @@ import { ActivityIndicator, Colors } from 'react-native-paper';
 // Material Community Icons docs: https://materialdesignicons.com/
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
+// import redux
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchUser, clearData, fetchUserCompletedTests } from '../redux/actions/index'
 
+// import screens for navigation
 import ProfileScreen from './main/Profile'
 import HomeScreen from './main/Home'
 import StudyScreen from './main/Study'
@@ -17,6 +19,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 const Tab = createMaterialBottomTabNavigator();
 
 export class Main extends Component {
+    // occurs when logging in: clear the data from the previous user, fetch the current user, and their completed tests
     componentDidMount() {
         this.props.clearData();
         this.props.fetchUser();
@@ -24,7 +27,7 @@ export class Main extends Component {
     }
     render() {
         const { currentUser } = this.props;
-        // this is needed because every time the app loads, there is a split-second when the user is undefined
+        // this is needed because every time the app loads, there is a split-second when there is no user as a consequence of calling clearData()
         if(currentUser == ''){
             return (
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff'}}>
@@ -58,6 +61,7 @@ export class Main extends Component {
     }
 }
  
+// send back all of the user's data back to redux
 const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser
 })
