@@ -41,9 +41,9 @@ function Home(props) {
     const [tip, setTip] = useState('');
     
     useEffect(() => {
-        if(props.currentUser !== null){
+        if(props.currentUser){
             props.fetchUser();
-        } else if (props.currentUser == null) {
+        } else {
             console.log("no user sorry");
         }
     }, [props.currentUser] )

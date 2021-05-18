@@ -3,7 +3,7 @@ import { USER_STATE_CHANGE, CLEAR_DATA, USER_TESTS_COMPLETED_STATE_CHANGE } from
 // initialState will always be how the app first loads, as there is a split second
 // where the computer processes the code that actually defines the user
 const initialState = {
-    currentUser: '',
+    currentUser: null,
     completedTests: [], 
 }
 
