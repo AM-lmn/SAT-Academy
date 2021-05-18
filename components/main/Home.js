@@ -3,6 +3,8 @@ import { View, Text, FlatList } from 'react-native'
 import firebase from 'firebase'
 import styles from '../styles'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchUser, fetchUserCompletedTests } from '../../redux/actions/index'
 // React Native Paper docs: https://callstack.github.io/react-native-paper/
 import { Title } from 'react-native-paper';
 
@@ -35,14 +37,26 @@ function Home(props) {
     "Start studying for the SAT early. According to the College Board, the best time to start is about 2-3 months before your test date.",
     "It is best to test practice tests in the morning as opposed to later in the day, since your test is usually administered around 8:00 AM.", 
     ];
-    const random = Math.floor(Math.random() * studyTips.length);
 
-    const [completedTests, setCompletedTests] = useState([]);
+    const [tip, setTip] = useState('');
     
     useEffect(() => {
-        setCompletedTests(props.completedTests);
-    }, )
+        if(props.currentUser !== null){
+            props.fetchUser();
+        } else if (props.currentUser == null) {
+            console.log("no user sorry");
+        }
+    }, [props.currentUser] )
 
+    useEffect(() => {
+        const random = Math.floor(Math.random() * studyTips.length);
+        setTip(studyTips[random])
+    }, [] )
+    
+    useEffect(() => {
+        props.fetchUserCompletedTests();
+    }, [props.completedTests] )
+    
     const { currentUser } = props;
 
     return (
@@ -57,7 +71,7 @@ function Home(props) {
                     Tests you've taken:
                 </Title>         
                 <FlatList
-                    data={completedTests}
+                    data={props.completedTests}
                     numColumns={1}
                     horizontal={true}
                     keyExtractor={item => item.id}
@@ -66,7 +80,7 @@ function Home(props) {
                         <View style={[styles.scoreOverview, { backgroundColor: '#596b96' }]}>
                             <Text style={{marginLeft: 5, marginRight: 5}}>{item.id}</Text>
                             <Text style={{marginLeft: 5, marginRight: 5}}>Your score: {item.testScore}</Text>
-                            <Text style={{marginLeft: 5, marginRight: 5}}>Target score reached: {item.targetReached.toString()}</Text>
+                            
                             <Text style={{marginLeft: 5, marginRight: 5}}>Additional points needed to reach target: {item.difference}</Text>
                         </View>
                 )} />
@@ -81,7 +95,7 @@ function Home(props) {
                 <Title style={[styles.title2, { marginTop: 25, marginLeft: 25}]}>
                     Study tip of the day:
                 </Title>
-                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>{studyTips[random]}</Text>
+                <Text style={{marginTop: 20, marginLeft: 25, marginRight: 25 }}>{tip}</Text>
             </View>
         </View>
     )
@@ -91,4 +105,5 @@ const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser,
     completedTests: store.userState.completedTests
 })
-export default connect(mapStateToProps, null)(Home);
+const mapDispatchProps = (dispatch) => bindActionCreators({fetchUser, fetchUserCompletedTests}, dispatch)
+export default connect(mapStateToProps, mapDispatchProps)(Home);

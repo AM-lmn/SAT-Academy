@@ -40,7 +40,7 @@ export class Register extends Component {
                 name,
                 email
             })
-        console.log(result)
+        
         })
         .catch(error => this.setState({ errorMessage: error.message }))
     }

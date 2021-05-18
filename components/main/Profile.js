@@ -3,6 +3,8 @@ import { View, TouchableOpacity, TextInput, Platform, Text, ScrollView } from 'r
 import firebase from 'firebase'
 import styles from '../styles'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchUser } from '../../redux/actions/index'
 import { Avatar, Title, Caption } from 'react-native-paper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 // Expo image picker docs: https://docs.expo.io/versions/latest/sdk/imagepicker/
@@ -54,10 +56,15 @@ function Profile(props) {
 
     // User gets logged out
     const onLogout = () => {
-        firebase.auth().signOut();
+        firebase.auth().signOut().then(() => {
+
+        }).catch((error) => {
+            console.log(error);
+        })
     }
 
     // Delete the user's account
+    
     const deleteUserAccount = () => {
         firebase.auth().currentUser.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(currentUser.email, reEnterPassword)).then(() => {
             firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid).delete().then(() => {
@@ -72,6 +79,7 @@ function Profile(props) {
             setDeleteAccError("Your password is either incorrect, or you do not have a password.");
         })
     }
+    
 
     // Changes the user's name
     const changeUserName = () => {
@@ -202,4 +210,5 @@ function Profile(props) {
 const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser,
 })
-export default connect(mapStateToProps, null)(Profile);
+const mapDispatchProps = (dispatch) => bindActionCreators({fetchUser}, dispatch)
+export default connect(mapStateToProps, mapDispatchProps)(Profile);
