@@ -15,13 +15,7 @@ import thunk from 'redux-thunk'
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBZqWJmRYd6AIaqAR28ERufTQRuuOaYJx4",
-  authDomain: "sat-academy-final-project.firebaseapp.com",
-  projectId: "sat-academy-final-project",
-  storageBucket: "sat-academy-final-project.appspot.com",
-  messagingSenderId: "777569984947",
-  appId: "1:777569984947:web:538d6185fdfa2433556bc6",
-  measurementId: "G-1NJGYQ7Y8H"
+  // your config here
 };
 
 if (firebase.apps.length === 0) {
